@@ -1,0 +1,263 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/chogeonhee/HeroDice
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+61540
+Successfully changed project path to: /Users/chogeonhee/HeroDice
+/Users/chogeonhee/HeroDice
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 61.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/chogeonhee/HeroDice/Assets
+GfxDevice: creating device client; threaded=0
+2021-05-24 23:18:24.561 Unity[15796:1309024] (null) preferred device: Apple M1 (high power)
+2021-05-24 23:18:24.561 Unity[15796:1309024] Metal devices available: 1
+2021-05-24 23:18:24.561 Unity[15796:1309024] 0: Apple M1 (high power)
+2021-05-24 23:18:24.562 Unity[15796:1309024] Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001068 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 42.56 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.756 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001022 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 39.96 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.038 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.8f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2420 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.0 MB.
+System memory in use after: 175.3 MB.
+
+Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 2824.
+Total: 3.085459 ms (FindLiveObjects: 0.227667 ms CreateObjectMapping: 0.049791 ms MarkObjects: 1.271584 ms  DeleteObjects: 1.534709 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ffd2c44ffeb50c574abb5d0c4453328') in 0.691643 seconds
+  Import took 0.695714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004622 seconds.
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ffd2c44ffeb50c574abb5d0c4453328') in 0.003142 seconds
+  Import took 0.006019 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.892284 seconds.
+  path: Assets/TutorialInfo
+  artifactKey: Guid(49110bb8dcada46328ad741970bce702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TutorialInfo using Guid(49110bb8dcada46328ad741970bce702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de5a30219286eb2a872f2f84d66d9616') in 0.000759 seconds
+  Import took 0.003673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.030743 seconds.
+  path: Assets/TutorialInfo
+  artifactKey: Guid(49110bb8dcada46328ad741970bce702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TutorialInfo using Guid(49110bb8dcada46328ad741970bce702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de5a30219286eb2a872f2f84d66d9616') in 0.000729 seconds
+  Import took 0.004134 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000626 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.107 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2345 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179.0 MB.
+System memory in use after: 176.3 MB.
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 2826.
+Total: 3.048583 ms (FindLiveObjects: 0.193667 ms CreateObjectMapping: 0.056250 ms MarkObjects: 1.350750 ms  DeleteObjects: 1.446708 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.752823 seconds.
+  path: Assets/ExampleAssets
+  artifactKey: Guid(990f5c2df70993f4987a388ca178996a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExampleAssets using Guid(990f5c2df70993f4987a388ca178996a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5ac45704b3e904ca5b19a6457cc79ac') in 0.048897 seconds
+  Import took 0.052215 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.316167 seconds.
+  path: Assets/0_HeroDice
+  artifactKey: Guid(843e4e478ff0b40e79b846d5846a6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice using Guid(843e4e478ff0b40e79b846d5846a6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c52b9a7d326fcd9c99a72fb32e410a4') in 0.001383 seconds
+  Import took 0.005176 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000952 seconds.
+  path: Assets/0_HeroDice
+  artifactKey: Guid(843e4e478ff0b40e79b846d5846a6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice using Guid(843e4e478ff0b40e79b846d5846a6399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c52b9a7d326fcd9c99a72fb32e410a4') in 0.000953 seconds
+  Import took 0.003956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.472735 seconds.
+  path: Assets/_URP
+  artifactKey: Guid(0d49b7b42d5f2454ea6ad33d95fc8be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_URP using Guid(0d49b7b42d5f2454ea6ad33d95fc8be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c12a1f740eb17cd717481857287984b8') in 0.001140 seconds
+  Import took 0.004275 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000562 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.874 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2345 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179.2 MB.
+System memory in use after: 176.5 MB.
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 2829.
+Total: 2.826166 ms (FindLiveObjects: 0.190791 ms CreateObjectMapping: 0.046292 ms MarkObjects: 1.275667 ms  DeleteObjects: 1.312292 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.614760 seconds.
+  path: Assets/0_HeroDice/Scenes
+  artifactKey: Guid(d0fa861c665174ed394d6cf50a30073e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes using Guid(d0fa861c665174ed394d6cf50a30073e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fb763f2812e2252df3a82d3f496dbcc') in 0.008764 seconds
+  Import took 0.014031 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.125997 seconds.
+  path: Assets/0_HeroDice/Scenes/SampleScene.unity
+  artifactKey: Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/SampleScene.unity using Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a7c01bc8ed57adf1ede3d700e613d7f') in 0.018201 seconds
+  Import took 0.022265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.456484 seconds.
+  path: Assets/0_HeroDice/Scenes/SampleScene 1.unity
+  artifactKey: Guid(028b24aa6406546ad938cf9e2b7a17e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/SampleScene 1.unity using Guid(028b24aa6406546ad938cf9e2b7a17e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8e807c55689e5f3d134550c672ff2ff') in 0.001472 seconds
+  Import took 0.004549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.817202 seconds.
+  path: Assets/0_HeroDice/Scenes/0__INTRO.unity
+  artifactKey: Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/0__INTRO.unity using Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5fb1061a5379c96b3712b64d492a220') in 0.001136 seconds
+  Import took 0.004267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.393176 seconds.
+  path: Assets/0_HeroDice/Scenes/1__MAIN.unity
+  artifactKey: Guid(028b24aa6406546ad938cf9e2b7a17e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/1__MAIN.unity using Guid(028b24aa6406546ad938cf9e2b7a17e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf01967dc77f946f7dc940d4babacd1d') in 0.001617 seconds
+  Import took 0.005368 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.649998 seconds.
+  path: Assets/0_HeroDice/Scenes/1__MAIN 1.unity
+  artifactKey: Guid(81136601b96b94640945adebe09628f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/1__MAIN 1.unity using Guid(81136601b96b94640945adebe09628f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb26965744dad1d6bc816f41038d3da3') in 0.001468 seconds
+  Import took 0.004200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000825 seconds.
+  path: Assets/0_HeroDice/Scenes/1__MAIN 1.unity
+  artifactKey: Guid(81136601b96b94640945adebe09628f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/1__MAIN 1.unity using Guid(81136601b96b94640945adebe09628f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb26965744dad1d6bc816f41038d3da3') in 0.001199 seconds
+  Import took 0.003890 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 717.095604 seconds.
+  path: Assets/0_HeroDice/Scenes/0__INTRO 1.unity
+  artifactKey: Guid(e94ecd38342dc4760b483e4557c33013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/0__INTRO 1.unity using Guid(e94ecd38342dc4760b483e4557c33013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b63d1d3122116fa26b137d82f3f4e9b9') in 0.016653 seconds
+  Import took 0.074499 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.305465 seconds.
+  path: Assets/0_HeroDice/Scenes/0__INTRO 2.unity
+  artifactKey: Guid(92808c42ef8e249358aac49c639acbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/0__INTRO 2.unity using Guid(92808c42ef8e249358aac49c639acbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dba4418829fbc98bca422c4c7c5b546') in 0.002526 seconds
+  Import took 0.005551 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.069386 seconds.
+  path: Assets/0_HeroDice/Scenes/1__MAIN.unity
+  artifactKey: Guid(e94ecd38342dc4760b483e4557c33013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/1__MAIN.unity using Guid(e94ecd38342dc4760b483e4557c33013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f62faf314c6b783fdeac382277c1d01') in 0.001165 seconds
+  Import took 0.004017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.810620 seconds.
+  path: Assets/0_HeroDice/Scenes/2__INGAME.unity
+  artifactKey: Guid(92808c42ef8e249358aac49c639acbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/0_HeroDice/Scenes/2__INGAME.unity using Guid(92808c42ef8e249358aac49c639acbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecb2132e9575d59bde2ad18dc025d8dc') in 0.001729 seconds
+  Import took 0.004886 seconds .
+
