@@ -18,6 +18,8 @@ public class BaseTower : MonoBehaviour
 	public BaseEnemy target => objTarget;
 
 	[SerializeField]
+	public string mTowerName;
+	[SerializeField]
 	protected Stat mStat;
 	public Stat Status => mStat;
 	[SerializeField]
@@ -30,6 +32,8 @@ public class BaseTower : MonoBehaviour
 	protected bool misActive;
 	[SerializeField]
 	protected float mDeltaTime = 0;
+	public MeshRenderer mRenderer;
+	Color _Color;
 	public bool IsActive
 	{
 		set
@@ -45,11 +49,20 @@ public class BaseTower : MonoBehaviour
 
 	public void SetTile(TowerTile _Tile)
 	{
+
 		mTile = _Tile;
 		mTile.IsActive = true;
 
 		mStat.Point = 5;
 		mStat.Speed = 0.5f;
+		mRenderer = GetComponent<MeshRenderer>();
+		mTowerName = (UnityEngine.Random.Range(0,1.0f) > 0.5f)? "Test1":"Test2";
+		if(mTowerName == "Test1")
+		{
+			mRenderer.materials[0].color = Color.blue;
+		}
+
+		_Color = mRenderer.materials[0].color;
 
 		mDeltaTime = Mathf.Infinity;
 
@@ -58,7 +71,10 @@ public class BaseTower : MonoBehaviour
 		
 		StartCoroutine(StartTower());
 	}
-
+	public void ResetColor()
+    {
+		mRenderer.materials[0].color = Color.blue;
+	}
 	public virtual void SearchTargets()
 	{
 		objTarget = EnemyManager.Instance.GetTarget();
@@ -90,8 +106,8 @@ public class BaseTower : MonoBehaviour
 
 	public virtual void OnDisable()
 	{
-        ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // 한 객체에 한번만 
+        ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // ?? ?????? ?????? 
 		StopAllCoroutines();
-		CancelInvoke();    // Monobehaviour에 Invoke가 있다면 
+		CancelInvoke();    // Monobehaviour?? Invoke?? ?????? 
 	}
 }
