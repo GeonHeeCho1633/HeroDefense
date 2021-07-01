@@ -51,6 +51,7 @@ public class BaseEnemy : MonoBehaviour
 			iWayCount = 0;
 			transform.position = mWayPoint[iWayCount];
 			iWayCount++;
+			transform.LookAt(mWayPoint[iWayCount]);
 		}
 		else if (fDistance < 0.01f)
 		{

@@ -20,4 +20,13 @@ public class TileManager : MonoBehaviour
 		}
 		return result;
 	}
+
+	public void ReturnTile(TowerTile _tile)
+	{
+		if (mActiveTile.Contains(_tile))
+		{
+			mActiveTile.Remove(_tile);
+			mEmptyTile.Add(_tile);
+		}
+	}
 }
