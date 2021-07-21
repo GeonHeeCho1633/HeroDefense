@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct Stat
-{
-	public float Point;
-	public float Speed;
-}
+
 
 public class BaseTower : MonoBehaviour
 {
@@ -32,8 +28,13 @@ public class BaseTower : MonoBehaviour
 	protected bool misActive;
 	[SerializeField]
 	protected float mDeltaTime = 0;
+	protected Tier mTier;
+	public Tier IsTier
+	{
+		set { mTier = value; }
+		get { return mTier; }
+	}
 
-	
 	protected SkinnedMeshRenderer[] arrMaterials;
 	protected List<Material> mListMaterial;
 	protected Color[] arrBaseColor;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
+	protected Tier mTier;
 	protected Stat mStat;
 	protected Vector3[] mWayPoint;
 	protected Vector3 mDirection;
@@ -21,6 +22,11 @@ public class BaseEnemy : MonoBehaviour
 			}
 		}
 		get { return misActive; }
+	}
+	public Tier IsTier
+	{
+		set { mTier = value; }
+		get { return mTier; }
 	}
 
 	public virtual void Create(Transform[] _WayPoint)

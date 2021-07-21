@@ -10,6 +10,12 @@ public class HeroManager : MonoSingleton<HeroManager>
     [SerializeField]
     private GameObject[] objTempTower;
     private List<BaseTower> mActiveList = new List<BaseTower>(0);
+    private bool isGameEnd;
+    public bool IsGameEnd
+    {
+        get { return isGameEnd; }
+        set { isGameEnd = value; }
+    }
 
     public void BuildTower()
     {

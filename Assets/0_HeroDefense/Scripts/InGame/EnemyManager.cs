@@ -14,6 +14,12 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 	private BaseEnemy objBaseEnemy;
 	private bool isStart;
     private List<BaseEnemy> mActiveList = new List<BaseEnemy>(0);
+	private bool isGameEnd;
+	public bool IsGameEnd
+	{
+		get { return isGameEnd; }
+		set { isGameEnd = value; }
+	}
 
 	IEnumerator Start()
 	{
@@ -49,7 +55,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 		return null;
 	}
 
-    public void CreateEnemy()
+    public void CreateEnemy(int i)
 	{
 		BaseEnemy _Enemy = ObjectPoolerManager.Instance.SpawnFromPool<BaseEnemy>("Enemy1", WayPoint[0].position, EnemyList);
 		_Enemy.Create(mWayPoint);
