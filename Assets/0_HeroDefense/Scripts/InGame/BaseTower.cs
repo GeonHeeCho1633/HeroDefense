@@ -11,6 +11,8 @@ public class BaseTower : MonoBehaviour
 
 	[SerializeField]
 	protected BaseEnemy objTarget;
+	[SerializeField]
+	protected BaseEnemy objCamp;
 	public BaseEnemy target => objTarget;
 
 	[SerializeField]
@@ -52,12 +54,10 @@ public class BaseTower : MonoBehaviour
 		}
 		get { return misActive; }
 	}
-
     private void Awake()
     {
 		Initialized();
 	}
-
     public virtual void Initialized()
 	{
 		mHitBox = gameObject.GetComponent<BoxCollider>();
@@ -73,20 +73,21 @@ public class BaseTower : MonoBehaviour
 			arrBaseColor[i] = mListMaterial[i].color;
 		}
 	}
-
 	public void SetTile(TowerTile _Tile)
 	{
 		mTile = _Tile;
 		mTile.IsActive = true;
 
-		mStat.Point = 5;
-		mStat.Speed = 0.5f;
+		mStat.AttackPoint = 20;
+		mStat.AttackSpeed = 0.25f;
 
 		mDeltaTime = Mathf.Infinity;
 
 		transform.position = mTile.Pos;
 		transform.position += Vector3.up * (transform.localScale.y * 0.5f);
-		
+
+		objCamp = EnemyManager.Instance.GetBaseCamp();
+
 		StartCoroutine(StartTower());
 	}
 	public void ResetColor()
@@ -111,38 +112,39 @@ public class BaseTower : MonoBehaviour
 	}
 	public virtual void AttackTargets()
 	{
-		if (!target.IsActive)
+		if (target!=null && !target.IsActive)
 		{
 			objTarget = null;
-			return;
+			mDeltaTime = 0;
 		}
-		else if (mDeltaTime >= mStat.Speed)
+
+		if (mDeltaTime >= mStat.AttackSpeed)
 		{
-			ObjectPoolerManager.Instance.SpawnFromPool<Bullet>("Bullet", transform.position).Init(this);
+			BaseEnemy temp = objTarget != null ? objTarget : objCamp;
+			ObjectPoolerManager.Instance.SpawnFromPool<Bullet>("Bullet", transform.position).Init(this, temp);
 			mDeltaTime = 0;
 		}
 	}
-
 	public virtual IEnumerator StartTower()
 	{
 		while (true)
 		{
 			mDeltaTime += Time.deltaTime;
 			if (target == null) SearchTargets();
-			else AttackTargets();
+
+			AttackTargets();
+
 			yield return null;
 		}
 	}
-
 	public virtual void Merge()
 	{
 		gameObject.SetActive(false);
 	}
-
 	public virtual void OnDisable()
 	{
-        ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // ?? ?????? ?????? 
+        ObjectPoolerManager.Instance.ReturnToPool(gameObject);
 		StopAllCoroutines();
-		CancelInvoke();    // Monobehaviour?? Invoke?? ?????? 
+		CancelInvoke();    
 	}
 }

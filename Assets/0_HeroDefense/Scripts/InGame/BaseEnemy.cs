@@ -5,12 +5,14 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
 	protected Tier mTier;
+	[SerializeField]
 	protected Stat mStat;
 	protected Vector3[] mWayPoint;
 	protected Vector3 mDirection;
 	protected int iWayCount;
 	protected float fDistance;
 	protected bool misActive;
+
 	public bool IsActive
 	{
 		set {
@@ -28,13 +30,20 @@ public class BaseEnemy : MonoBehaviour
 		set { mTier = value; }
 		get { return mTier; }
 	}
+	public void SetStatHP(float _HP)
+	{
+		mStat.HP = _HP;
+	}
 
 	public virtual void Create(Transform[] _WayPoint)
 	{
 		mWayPoint = new Vector3[_WayPoint.Length];
 		mDirection = Vector3.zero;
 		fDistance = Mathf.Infinity;
-		mStat.Speed = 5.0f;
+		mStat.AttackSpeed = 1.0f;
+		mStat.AttackPoint = 5.0f;
+		mStat.MoveSpeed = 5.0f;
+		mStat.HP = 30.0f;
 		for (int i = 0; i < _WayPoint.Length; i++)
 		{
 			mWayPoint[i] = _WayPoint[i].position;
@@ -75,7 +84,7 @@ public class BaseEnemy : MonoBehaviour
 		}
 		fDistance = (mWayPoint[iWayCount] - transform.position).sqrMagnitude;
 		mDirection = (mWayPoint[iWayCount]-transform.position).normalized;
-		transform.position += mDirection * mStat.Speed * Time.deltaTime;
+		transform.position += mDirection * mStat.MoveSpeed * Time.deltaTime;
 	}
 
 	public virtual IEnumerator StateEnemy()
@@ -96,9 +105,9 @@ public class BaseEnemy : MonoBehaviour
 
 	public virtual void Hit(int _Damage)
 	{
-		mStat.Point -= _Damage;
+		mStat.HP -= _Damage;
 
-		if (mStat.Point <= 0)
+		if (mStat.HP <= 0)
 		{
 			DeadEnemy();
 		}

@@ -17,6 +17,10 @@ public class HeroManager : MonoSingleton<HeroManager>
         set { isGameEnd = value; }
     }
 
+    public void SetMyDeck()
+    {
+    }
+
     public void BuildTower()
     {
         if (!(managerTile.EmptyTileCount > 0))

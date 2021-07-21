@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
 	[SerializeField]
+	private BaseEnemy baseCamp;
+	[SerializeField]
 	private Transform[] mWayPoint;
 	public Transform[] WayPoint => mWayPoint;
 
@@ -15,6 +17,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 	private bool isStart;
     private List<BaseEnemy> mActiveList = new List<BaseEnemy>(0);
 	private bool isGameEnd;
+
 	public bool IsGameEnd
 	{
 		get { return isGameEnd; }
@@ -23,7 +26,10 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
 	IEnumerator Start()
 	{
-		while (true)
+		baseCamp.IsActive = true;
+		baseCamp.SetStatHP(400f);
+
+		while (baseCamp.IsActive)
 		{
 			AutoCreateEnemy();
 			yield return new WaitForSeconds(0.75f);
@@ -55,7 +61,12 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 		return null;
 	}
 
-    public void CreateEnemy(int i)
+	public BaseEnemy GetBaseCamp()
+	{
+		return baseCamp;
+	}
+
+	public void CreateEnemy(int i)
 	{
 		BaseEnemy _Enemy = ObjectPoolerManager.Instance.SpawnFromPool<BaseEnemy>("Enemy1", WayPoint[0].position, EnemyList);
 		_Enemy.Create(mWayPoint);
