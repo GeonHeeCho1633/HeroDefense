@@ -3,24 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-#if UNITY_EDITOR
-using UnityEditor;
-
-[CustomEditor(typeof(ObjectPoolerManager))]
-public class ObjectPoolerEditor : Editor
-{
-	const string INFO = "풀링한 오브젝트에 다음을 적으세요 \nvoid OnDisable()\n{\n" +
-		"    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 \n" +
-		"    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 \n}";
-
-	public override void OnInspectorGUI()
-	{
-		EditorGUILayout.HelpBox(INFO, MessageType.Info);
-		base.OnInspectorGUI();
-	}
-}
-#endif
-
 public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 {
 	[Serializable]
@@ -34,9 +16,6 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 	[SerializeField] Pool[] pools;
 	List<GameObject> spawnObjects;
 	Dictionary<string, Queue<GameObject>> poolDictionary;
-	readonly string INFO = " 오브젝트에 다음을 적으세요 \nvoid OnDisable()\n{\n" +
-		"    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 \n" +
-		"    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 \n}";
 
 
 	public GameObject SpawnFromPool(string tag, Vector3 position, Transform parent) =>
@@ -150,7 +129,8 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 
 			// OnDisable에 ReturnToPool 구현여부와 중복구현 검사
 			if (poolDictionary[pool.tag].Count <= 0)
-				Debug.LogError($"{pool.tag}{INFO}");
+			{ 
+			}
 			else if (poolDictionary[pool.tag].Count != pool.size)
 				Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
 		}
