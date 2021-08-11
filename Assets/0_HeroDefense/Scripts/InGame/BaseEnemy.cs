@@ -98,7 +98,7 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void OnDisable()
     {
-        EnemyManager.Instance.RemoveEnemy(this);
+        //EnemyManager.Instance.RemoveEnemy(this);
         ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // 한 객체에 한번만 
         CancelInvoke();    // Monobehaviour에 Invoke가 있다면 
     }

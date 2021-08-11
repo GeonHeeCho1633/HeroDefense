@@ -6,10 +6,13 @@ using UnityEngine.EventSystems;
 public class HeroManager : MonoSingleton<HeroManager>
 {
     [SerializeField]
-    private TileManager managerTile;
+    private BaseObject objCamp;
     [SerializeField]
-    private GameObject[] objTempTower;
-    private List<BaseTower> mActiveList = new List<BaseTower>(0);
+    private Deck[] playDeck;
+    [SerializeField]
+    private TileManager managerTile;
+    private List<BaseHero> mActiveList = new List<BaseHero>(0);
+
     private bool isGameEnd;
     public bool IsGameEnd
     {
@@ -17,28 +20,53 @@ public class HeroManager : MonoSingleton<HeroManager>
         set { isGameEnd = value; }
     }
 
-    public void SetMyDeck()
+    public void StartGame(Deck _Camp, List<Deck> _playDeck, int _Mode)
     {
+        objCamp.InitObject();
+        playDeck = _playDeck.ToArray();
+        objCamp.SetObject(_Camp);
+        isGameEnd = false;
+        StartCoroutine(CheckCamp());
+    }
+    private IEnumerator CheckCamp()
+    {
+        while (!isGameEnd)
+        {
+            if (objCamp.GetObjStat().HP <= 0)
+                isGameEnd = true;
+            yield return null;
+        }
+        StopAllCoroutines();
     }
 
-    public void BuildTower()
+    public void BuildTower(int i)
     {
-        if (!(managerTile.EmptyTileCount > 0))
+        if (!(managerTile.EmptyTileCount > 0) || playDeck == null)
             return;
 
-        BaseTower temp;
-        string _towerType = (UnityEngine.Random.Range(0,1.0f) > 0.5f)? "Kang" : "Nanky";
-        temp = ObjectPoolerManager.Instance.SpawnFromPool<BaseTower>(_towerType, transform.position, transform);
+        mActiveList.Add(DrawHero(i));
+    }
+
+    private BaseHero DrawHero(int i=-1)
+    {
+        string _towerType;
+        if (i<=-1)
+            _towerType = playDeck[UnityEngine.Random.Range(0, playDeck.Length)].key;
+        else
+            _towerType = playDeck[i].key;
+
+        BaseHero temp = ObjectPoolerManager.Instance.SpawnFromPool<BaseHero>(_towerType, transform.position, transform);
+        temp.SetObject(playDeck[i]);
         temp.SetTile(managerTile.GetEmptyTile());
-        temp.mTowerName = _towerType;
-        mActiveList.Add(temp);
+        temp.strObjName = _towerType;
+        return temp;
     }
 
     public void SeleteTower(string _name)
     {
         for (int i = 0; i < mActiveList.Count; i++)
         {
-            if (mActiveList[i].mTowerName != _name)
+            if (mActiveList[i].strObjName != _name)
                 mActiveList[i].ChangColor();
         }
     }
@@ -51,9 +79,13 @@ public class HeroManager : MonoSingleton<HeroManager>
         }
     }
 
-    public void MergeTower(BaseTower _tower)
+    public void MergeTower(BaseHero _tower)
     {
-        managerTile.ReturnTile(_tower.mTile);
+        managerTile.ReturnTile(_tower.myTile);
         _tower.Merge();
+    }
+    public BaseObject GetBaseCamp()
+    {
+        return objCamp;
     }
 }

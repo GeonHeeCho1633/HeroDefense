@@ -6,14 +6,14 @@ public class Bullet : MonoBehaviour
     public int Damage = 1;
     public float Duration = 0.1f;
 
-    public void Init(BaseTower owner,BaseEnemy target)
+    public void Init(BaseObject owner,BaseObject target)
     {
         transform.position = owner.transform.position;
         gameObject.SetActive(true);
         StartCoroutine(Fire(owner, target));
     }
 
-    IEnumerator Fire(BaseTower owner, BaseEnemy target)
+    IEnumerator Fire(BaseObject owner, BaseObject target)
     {
         float fDistance = Mathf.Infinity;
         Vector3 vecDirection = Vector3.zero;
@@ -32,13 +32,9 @@ public class Bullet : MonoBehaviour
 
             yield return null;
         }
-        target.Hit((int)owner.Status.AttackPoint);
-        gameObject.SetActive(false);
-    }
-
-    public virtual void OnDisable()
-    {
-        ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // 한 객체에 한번만 
+        target.Hit(owner.GetObjStat().AttackPoint);
         CancelInvoke();    // Monobehaviour에 Invoke가 있다면 
+        ObjectPoolerManager.Instance.ReturnToPool(gameObject);    // 한 객체에 한번만 
+        gameObject.SetActive(false);
     }
 }

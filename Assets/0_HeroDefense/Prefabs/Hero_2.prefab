@@ -3139,11 +3139,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5027354359408809745}
-  - component: {fileID: 6035553094218115895}
   - component: {fileID: 4180503421074323624}
   - component: {fileID: 5191874532256525366}
+  - component: {fileID: -1820370373676371096}
   m_Layer: 0
-  m_Name: kang_cap
+  m_Name: Hero_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3171,27 +3171,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6035553094218115895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5660761450011069867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747fc289aed05b941b3bb3f5b58086fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objBullet: {fileID: 0}
-  objTarget: {fileID: 0}
-  mTowerName: 
-  indexTowerCode: 0
-  mTile: {fileID: 0}
-  mArrTargetMonster: []
-  misActive: 0
-  mDeltaTime: 0
-  arrMaterials: []
 --- !u!95 &4180503421074323624
 Animator:
   serializedVersion: 3
@@ -3224,6 +3203,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 1.2, z: 0.7}
   m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!114 &-1820370373676371096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660761450011069867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6bd741527a24e54aaae091ee997cc23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  strObjName: 
+  objCamp: {fileID: 0}
+  myDeck:
+    key: 
+    tierChar: 0
+    statChar:
+      AttackPoint: 0
+      DefensePoint: 0
+      CreticalChance: 0
+      CreticalPoint: 0
+      EvasionChance: 0
+      MoveSpeed: 0
+      AttackSpeed: 0
+      HP: 0
+      CreatCost: 0
+      SkillCost: 0
+  objTarget: []
+  myTile: {fileID: 0}
 --- !u!1 &5885017425271813645
 GameObject:
   m_ObjectHideFlags: 0

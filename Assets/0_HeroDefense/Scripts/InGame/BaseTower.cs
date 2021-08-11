@@ -12,7 +12,7 @@ public class BaseTower : MonoBehaviour
 	[SerializeField]
 	protected BaseEnemy objTarget;
 	[SerializeField]
-	protected BaseEnemy objCamp;
+	protected BaseObject objCamp;
 	public BaseEnemy target => objTarget;
 
 	[SerializeField]
@@ -108,22 +108,22 @@ public class BaseTower : MonoBehaviour
 	}
 	public virtual void SearchTargets()
 	{
-		objTarget = EnemyManager.Instance.GetTarget();
+		//objTarget = EnemyManager.Instance.GetTarget();
 	}
 	public virtual void AttackTargets()
 	{
-		if (target!=null && !target.IsActive)
-		{
-			objTarget = null;
-			mDeltaTime = 0;
-		}
+		//if (target!=null && !target.IsActive)
+		//{
+		//	objTarget = null;
+		//	mDeltaTime = 0;
+		//}
 
-		if (mDeltaTime >= mStat.AttackSpeed)
-		{
-			BaseEnemy temp = objTarget != null ? objTarget : objCamp;
-			ObjectPoolerManager.Instance.SpawnFromPool<Bullet>("Bullet", transform.position).Init(this, temp);
-			mDeltaTime = 0;
-		}
+		//if (mDeltaTime >= mStat.AttackSpeed)
+		//{
+		//	BaseEnemy temp = objTarget != null ? objTarget : objCamp;
+		//	//ObjectPoolerManager.Instance.SpawnFromPool<Bullet>("Bullet", transform.position).Init(this, temp);
+		//	mDeltaTime = 0;
+		//}
 	}
 	public virtual IEnumerator StartTower()
 	{

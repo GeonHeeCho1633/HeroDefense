@@ -1469,11 +1469,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6401321351735465889}
-  - component: {fileID: 4786839554610867735}
   - component: {fileID: 5435978374189801296}
   - component: {fileID: 6852921034341432121}
+  - component: {fileID: 3832568794325541629}
   m_Layer: 0
-  m_Name: a00 1
+  m_Name: Monster_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,18 +1497,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4786839554610867735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6025217574757764379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeeab11931048a84da6e6caf8fcafaa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &5435978374189801296
 Animator:
   serializedVersion: 3
@@ -1541,6 +1529,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 1.2, z: 0.7}
   m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!114 &3832568794325541629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6025217574757764379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763fbf0fb8689e04986667bf2075c1dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  strObjName: 
+  objCamp: {fileID: 0}
+  myDeck:
+    key: 
+    tierChar: 0
+    statChar:
+      AttackPoint: 0
+      DefensePoint: 0
+      CreticalChance: 0
+      CreticalPoint: 0
+      EvasionChance: 0
+      MoveSpeed: 0
+      AttackSpeed: 0
+      HP: 0
+      CreatCost: 0
+      SkillCost: 0
 --- !u!1 &6110982933169060231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1700,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2144,7 +2161,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2911,15 +2928,15 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
-  - {fileID: 2100000, guid: 06767ff4d782f2146bc57999b05c913b, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
+  - {fileID: 2100000, guid: 469f011905e2e6e4e8cbf6c7c604fd78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

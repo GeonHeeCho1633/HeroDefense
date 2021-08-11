@@ -7,7 +7,7 @@ public class MergeEvent : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
     private bool isDrag;
     private RaycastHit mHit;
 
-    private BaseTower seletTower;
+    private BaseHero seletTower;
 
     private void Awake()
     {
@@ -19,11 +19,11 @@ public class MergeEvent : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out mHit))
         {
-            seletTower = mHit.transform.GetComponent<BaseTower>();
+            seletTower = mHit.transform.GetComponent<BaseHero>();
             if (seletTower == null)
                 return;
 
-            myHeroManager.SeleteTower(seletTower.mTowerName);
+            myHeroManager.SeleteTower(seletTower.strObjName);
             isDrag = true;
         }
     }
@@ -46,9 +46,9 @@ public class MergeEvent : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out mHit))
         {
-            BaseTower objectHit = mHit.transform.GetComponent<BaseTower>();
+            BaseHero objectHit = mHit.transform.GetComponent<BaseHero>();
 
-            if (seletTower.mTowerName.Equals(objectHit.mTowerName) && seletTower!=objectHit)
+            if (seletTower.strObjName.Equals(objectHit.strObjName) && seletTower!=objectHit)
             {
                 myHeroManager.MergeTower(seletTower);
             }

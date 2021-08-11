@@ -5,17 +5,20 @@ using UnityEngine;
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
 	[SerializeField]
-	private BaseEnemy baseCamp;
+	private BaseObject objCamp;
+	[SerializeField]
+	private Deck[] playDeck;
+
 	[SerializeField]
 	private Transform[] mWayPoint;
 	public Transform[] WayPoint => mWayPoint;
 
 	[SerializeField]
 	private Transform EnemyList;
-	[SerializeField]
-	private BaseEnemy objBaseEnemy;
 	private bool isStart;
-    private List<BaseEnemy> mActiveList = new List<BaseEnemy>(0);
+
+	[SerializeField]
+    private List<BaseMonster> mActiveList = new List<BaseMonster>(0);
 	private bool isGameEnd;
 
 	public bool IsGameEnd
@@ -24,28 +27,37 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 		set { isGameEnd = value; }
 	}
 
-	IEnumerator Start()
+	public void StartGame(Deck _Camp, List<Deck> _playDeck, int _Mode)
 	{
-		baseCamp.IsActive = true;
-		baseCamp.SetStatHP(400f);
-
-		while (baseCamp.IsActive)
-		{
-			AutoCreateEnemy();
-			yield return new WaitForSeconds(0.75f);
-		}
+		objCamp.InitObject();
+		playDeck = _playDeck.ToArray();
+		objCamp.SetObject(_Camp);
+		isGameEnd = false;
+		StartCoroutine(CheckCamp());
 	}
 
-	private void AutoCreateEnemy()
+	private IEnumerator CheckCamp()
 	{
-		if (!isStart) return;
+		while (!isGameEnd)
+		{
+			if (objCamp.GetObjStat().HP <= 0)
+				isGameEnd = true;
+			yield return null;
+		}
+		StopAllCoroutines();
+	}
 
-		BaseEnemy _Enemy = ObjectPoolerManager.Instance.SpawnFromPool<BaseEnemy>("Enemy", WayPoint[0].position, EnemyList);
-		_Enemy.Create(mWayPoint);
+	public void CreateEnemy(int _number)
+	{
+		if (isGameEnd) return;
+
+		BaseMonster _Enemy = ObjectPoolerManager.Instance.SpawnFromPool<BaseMonster>(playDeck[_number].key, WayPoint[0].position, EnemyList);
+		_Enemy.SetWayPoint(mWayPoint);
+		_Enemy.SetObject(playDeck[_number]);
 		mActiveList.Add(_Enemy);
 	}
 
-    public void RemoveEnemy(BaseEnemy _Enemy)
+    public void RemoveEnemy(BaseMonster _Enemy)
     {
 		if (mActiveList.Contains(_Enemy))
 		{
@@ -53,7 +65,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 		}
     }
 
-	public BaseEnemy GetTarget()
+	public BaseObject GetTarget()
 	{
 		if (mActiveList.Count > 0)
 			return mActiveList[0];
@@ -61,18 +73,8 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 		return null;
 	}
 
-	public BaseEnemy GetBaseCamp()
+	public BaseObject GetBaseCamp()
 	{
-		return baseCamp;
+		return objCamp;
 	}
-
-	public void CreateEnemy(int i)
-	{
-		BaseEnemy _Enemy = ObjectPoolerManager.Instance.SpawnFromPool<BaseEnemy>("Enemy1", WayPoint[0].position, EnemyList);
-		_Enemy.Create(mWayPoint);
-		mActiveList.Add(_Enemy);
-	}
-
-	public void OnClickStart() { isStart = true; }
-
 }
