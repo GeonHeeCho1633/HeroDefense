@@ -14,6 +14,7 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 	}
 
 	[SerializeField] Pool[] pools;
+	[SerializeField]
 	List<GameObject> spawnObjects;
 	Dictionary<string, Queue<GameObject>> poolDictionary;
 
@@ -74,7 +75,7 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 		if (!Instance.poolDictionary.ContainsKey(obj.name))
 			throw new Exception($"Pool with tag {obj.name} doesn't exist.");
 
-		//obj.transform.parent = transform;
+		obj.transform.parent = transform;
 		Instance.poolDictionary[obj.name].Enqueue(obj);
 	}
 
@@ -91,7 +92,10 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 	GameObject _SpawnFromPool(string tag, Vector3 position, Quaternion rotation, Transform parent = null)
 	{
 		if (!poolDictionary.ContainsKey(tag))
+		{
+			Debug.Log($"{tag} doesn't exist : {tag}");
 			throw new Exception($"Pool with tag {tag} doesn't exist.");
+		}
 
 		// 큐에 없으면 새로 추가
 		Queue<GameObject> poolQueue = poolDictionary[tag];
@@ -99,6 +103,7 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 		{
 			Pool pool = Array.Find(pools, x => x.tag == tag);
 			var obj = CreateNewObject(pool.tag, pool.prefab);
+			poolDictionary[pool.tag].Enqueue(obj);
 			ArrangePool(obj);
 		}
 
@@ -120,10 +125,16 @@ public class ObjectPoolerManager : MonoSingleton<ObjectPoolerManager>
 		// 미리 생성
 		foreach (Pool pool in pools)
 		{
+			if (string.IsNullOrEmpty(pool.tag))
+				pool.tag = pool.prefab.name;
+
+
+			Debug.Log(pool.tag);
 			poolDictionary.Add(pool.tag, new Queue<GameObject>());
 			for (int i = 0; i < pool.size; i++)
 			{
 				var obj = CreateNewObject(pool.tag, pool.prefab);
+				poolDictionary[pool.tag].Enqueue(obj);
 				ArrangePool(obj);
 			}
 
