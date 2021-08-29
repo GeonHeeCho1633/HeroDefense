@@ -1,4 +1,4 @@
-﻿using ADA_Camera;
+﻿//using ADA_Camera; 99번째줄 체크
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,7 +96,7 @@ public static class PageUtil
 		if (_canvas != null)
 		{
 			_canvas.renderMode = RenderMode.ScreenSpaceCamera;
-			_canvas.worldCamera = _isUICam == true ? CameraManager.Instance.uiCameraDefault : CameraManager.Instance.mainCamera;
+			//_canvas.worldCamera = _isUICam == true ? CameraManager.Instance.uiCameraDefault : CameraManager.Instance.mainCamera;
 			_canvas.planeDistance = 1;
 		}
 	}

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ADA_Manager
+namespace Hero_Manager
 {
     //페이지 고유 키값
     public enum PageEnum
