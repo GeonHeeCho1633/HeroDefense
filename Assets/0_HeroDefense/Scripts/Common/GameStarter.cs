@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Hero_Manager;
 
 namespace NEXT.ADA
 {
@@ -24,8 +24,8 @@ namespace NEXT.ADA
 		public static ScreenSize screenSetting = new ScreenSize(720, 1280);                     //?????? ???? ??????720, 1280?? ??????
 
 		private bool isPlayingGameStart;
-		//private ADA_Manager.SceneManager sceneManager;
-		//private ADA_Manager.PageManager pagemManager;
+		private Hero_Manager.SceneManager sceneManager;
+		private Hero_Manager.PageManager pagemManager;
 		private string strSetupSceneName = "0__INTRO";
 
 		/// <summary>
@@ -39,8 +39,8 @@ namespace NEXT.ADA
 			Application.targetFrameRate = 60;
 			screenOrigin = new ScreenSize(Screen.width, Screen.height);
 			UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoadEvent;
-			//sceneManager = ADA_Manager.SceneManager.Instance;
-			//pagemManager = ADA_Manager.PageManager.Instance;
+			sceneManager = Hero_Manager.SceneManager.Instance;
+			pagemManager = Hero_Manager.PageManager.Instance;
 			GameStart();
 		}
 
@@ -51,12 +51,12 @@ namespace NEXT.ADA
 		public void GameStart()
 		{
 			SetGraphic();
-			//UIUtil.ChangeOrientation_Portrait();
+			UIUtil.ChangeOrientation_Portrait();
 			isPlayingGameStart = true;
 
 #if UNITY_EDITOR
 			Caching.ClearCache();
-			//PageUtil.SetMainGameViewSize();
+			PageUtil.SetMainGameViewSize();
 			Application.runInBackground = true;
 #endif
 
@@ -64,8 +64,8 @@ namespace NEXT.ADA
             if (UnityEngine.iOS.Device.generation.ToString().Contains("iPhoneX"))
                 //StatusBarManager.Show(true);
 #endif
-			//sceneManager.Init();
-			//pagemManager.Init();
+			sceneManager.Init();
+			pagemManager.Init();
 			StartCoroutine(nameof(R_LoadNextScene));
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		}
@@ -76,7 +76,7 @@ namespace NEXT.ADA
 		IEnumerator R_LoadNextScene()
 		{
 			yield return new WaitForSeconds(1f);
-			//sceneManager.Load(ADA_Manager.SceneEnum.Splash);
+			sceneManager.Load(SceneEnum.Main);
 		}
 
 		/// <summary>
@@ -97,7 +97,7 @@ namespace NEXT.ADA
 		public void SetGraphic()
 		{
 			float fRatio =  Screen.height/((float)Screen.width);
-			int index;// = LocalDataController.GetLocalDataValue_Int("SETTING_GRAPHIC", 1);
+			int index = LocalDataController.GetLocalDataValue_Int("SETTING_GRAPHIC", 1);
 #if !KR_DEV
 			index = 1;
 #endif

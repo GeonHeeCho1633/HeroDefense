@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using ADA_Manager;
+using Hero_Manager;
 
 [CreateAssetMenu(menuName = "Main/GameScenes", fileName = "GameScenes", order = 1)]
 public class GameScenes : ScriptableObject
@@ -11,7 +11,7 @@ public class GameScenes : ScriptableObject
 	[System.Serializable]
 	public class SceneInfo
 	{
-		//public SceneEnum SceneType;
+		public SceneEnum SceneType;
 		public string SceneName;
 	}
 }
